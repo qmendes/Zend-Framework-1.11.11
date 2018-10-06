@@ -1,0 +1,12 @@
+<?php
+$this->title = "Apagar Cliente";
+$this->headTitle($this->title);
+?>
+<p>Tem certeza de que deseja apagar o cliente "<?php echo "<b>" . $this->client['name'] . "</b>"; ?>"?</p>
+<form action="<?php echo $this->url();?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->client['id']; ?>" />
+        <input type="submit" name="del" value="Sim" />
+        <input type="submit" name="del" value="Não" />
+    </div>
+</form>

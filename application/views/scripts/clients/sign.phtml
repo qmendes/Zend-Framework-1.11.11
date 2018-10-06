@@ -1,0 +1,14 @@
+<style>
+    #id-label,#id-element{
+        display: none;
+    }
+</style>
+
+
+<h5><?php echo $this->message; ?></h5>
+
+<h4>Inclusão</h4>
+<?php
+$this->form->setAction($this->url());
+echo $this->form;
+?>

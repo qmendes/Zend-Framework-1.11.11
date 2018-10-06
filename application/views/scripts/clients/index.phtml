@@ -1,0 +1,68 @@
+<?php
+$this->title = "Clientes";
+$this->headTitle($this->title);
+?>
+
+<section>
+    <h4>Cadastro</h4>
+    <div class="table-wrapper">
+
+        <ul class="actions">
+            <li><a href="/cadastro" class="button alt">Adicionar</a></li>
+        </ul>
+
+        <table>
+            <tr>
+                <th align="left">Id</th>
+                <th align="left">Nome</th>
+                <th align="left">Email</th>
+                <th align="left">Telefone</th>
+                <th align="left">CPF</th>
+                <th align="left">&nbsp</th>
+            </tr>
+
+            <?php
+
+            foreach ($this->entries as $line){
+                $fields = explode(",",$line);
+                echo "<tr>";
+                foreach ($fields as $field){
+                    echo "<td>" . str_replace('"','',$field) . "</td>";
+                }
+                echo '<td>' . '<a href="alteracao/id/'.$fields[0].'">Edit</a>' . '&nbsp<a href="exclusao/id/'.$fields[0].'">Delete</a>' . '</td>';
+                echo "</tr>";
+            }
+            ?>
+
+        </table>
+
+    </div>
+</section>
+
+
+
+<!--
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>CPF</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($this->entries as $entry): ?>
+        <tr>
+            <td><?php echo $this->escape($entry->id); ?></td>
+            <td><?php echo $this->escape($entry->name); ?></td>
+            <td><?php echo $this->escape($entry->email); ?></td>
+            <td><?php echo $this->escape($entry->telefone); ?></td>
+            <td><?php echo $this->escape($entry->cpf); ?></td>
+            <td>
+                <a href="alteracao/id/<?php echo $entry->id; ?>">Edit</a>
+                <a href="exclusao/id/<?php echo $entry->id; ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+-->
